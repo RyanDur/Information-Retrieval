@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+
+\newcommand{\answer}[1]{\fbox{\parbox{\linewidth}{#1}}}
+
+\begin{document}
+	\lhead{Ryan Durling}
+	\rhead{IR Coursework (1)}
+	
+	\begin{enumerate}[itemsep=3em]
+		\item{
+			You are using a boolean IR system with an inverted file index containing the following positional information:\\ \\			
+				\begin{tabular}{l  l}
+					cold, 2:       &  [ 1, 1 :$<$ 6 $>$; 4, 1 :$<$ 4 $>$ ] \\
+					days, 1:      &  [ 3, 1 :$<$ 2 $>$ ] \\
+					eat, 1:         &  [ 6, 1 :$<$ 1 $>$] \\
+					hot, 2:         &  [ 1, 1 :$<$ 3 $>$; 4, 1 :$<$ 8 $>$ ] \\
+					in, 3:           &  [ 2, 1 :$<$ 3 $>$; 4, 2 :$<$ 1,5 $>$ ] \\
+					lot, 1:          &  [ 6, 1 :$<$ 3 $>$ ] \\
+					nine, 1:       &  [ 3, 1 :$<$ 1 $>$ ] \\
+					old, 1:         &  [ 3, 1 :$<$ 3 $>$ ] \\
+					peas, 5:      &  [ 1, 2 :$<$ 1,4 $>$; 2, 1 :$<$ 1 $>$; 5, 2 :$<$ 1,3 $>$ ] \\
+					porridge, 5: &  [ 1, 2 :$<$ 2,5 $>$; 2, 1 :$<$ 2 $>$; 5, 2 :$<$ 2,4 $>$ ] \\
+					pot, 3:         &  [ 2, 1 :$<$ 5 $>$; 4, 2 :$<$ 3,7 $>$ ] \\
+					the, 4:         &  [ 2, 1 :$<$ 4 $>$; 4, 2 :$<$ 2,6 $>$; 6, 1 :$<$ 2 $>$ ] 
+				\end{tabular}
+			}
+			
+			\begin{enumerate}[itemsep=3em]
+			\item{
+				Which of the terms have multiple occurrences within the same document?
+			
+				\answer{}
+			}
+			
+			\item{
+				Which documents would the following query return? \\ eat OR (porridge /1 hot)
+				
+				\answer{}
+			}
+		\end{enumerate}	
+		
+		\newpage
+		\item{
+			You are testing a program implementing the (Levenshtein) edit distance algorithm. It outputs the following table which has errors. Identify the cells in the table that contain wrong entries and provide the correct entries for them. \\		
+				\begin{center}
+					\begin{tabular}{| c | c | c | c | c |}
+						\hline
+						& `' & l & e & t \\
+						\hline
+						`' & 0 & 1 & 2 & 4 \\
+						\hline
+						c & 1 & 1 & 2 & 3 \\
+						\hline
+						a & 2 & 2 & 2 & 3 \\
+						\hline
+						t & 3 & 2 & 2 & 1 \\
+						\hline 
+					\end{tabular}
+				\end{center}			
+				
+			\answer{}
+		}
+		
+		\item{
+			You want to compress the dictionary terms stored in the leaf pages of a B-tree. Apply front coding to the following list of terms:
+			\begin{itemize}
+				\item{Jalaun}
+				\item{Jalna}
+				\item{Jalpaiguri}
+				\item{Jamaica}
+				\item{Jamal}
+				\item{Jamb}
+			\end{itemize}
+			
+			\answer{}
+		}
+
+		\newpage
+		\item{
+			An IR system uses the $\gamma$-code to encode postings lists. The following bit-string is returned by an inverted file index as a gap encoded list of DocIDs.
+			\begin{center}
+				1110001111101011110001111100100
+			\end{center}
+			Is this a sequence properly encoded in $\gamma$-code? If yes, write down the decoded list of DocIDs. If no, briefly explain why this bit-string is not a correct $\gamma$-code.\\ \\
+			
+			\answer{}
+		}
+		
+		\item{
+			Compute the cosine similarity between each pair of the following vectors, assuming that the elements of these vectors have already been weighted using TF-IDF.
+		
+			\[ d_{1} = \left(\begin{array}{c}
+				1 \\ 2 \\ 3 \\ 1 \\ 1
+			 \end{array} \right) 	
+			 \qquad		 
+			 d_{2} = \left(\begin{array}{c}
+				6 \\ 0 \\ 0 \\ 6 \\ 3
+			 \end{array} \right)	
+			 \qquad		 
+			 d_{3} = \left(\begin{array}{c}
+				2 \\ 1 \\ 0 \\ 0 \\ 2
+			 \end{array} \right)\] 
+			 
+			\answer{}
+		}
+	\end{enumerate}	
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
