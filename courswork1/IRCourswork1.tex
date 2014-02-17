@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage{enumitem}
+\usepackage[table]{xcolor}
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}
 
@@ -33,13 +34,17 @@
 				\question{
 					Which of the terms have multiple occurrences within the same document?
 			
-					\answer{}
+					\answer{
+						in, peas, porridge, pot, the
+					}
 				}
 			
 				\question{
 					Which documents would the following query return? \\ eat OR (porridge /1 hot)
 				
-					\answer{}
+					\answer{
+						6, 1
+					}
 				}
 			}
 		}		
@@ -63,9 +68,26 @@
 				\end{tabular}
 			\end{center}			
 				
-			\answer{}
+			\answer{
+				\begin{center}
+				\begin{tabular}{| c | c | c | c | c |}
+					\hline
+					& `' & l & e & t \\
+					\hline
+					`' & 0 & 1 & 2 & \cellcolor{green}3 \\
+					\hline
+					c & 1 & 1 & 2 & 3 \\
+					\hline
+					a & 2 & 2 & 2 & \cellcolor{green}2 \\
+					\hline
+					t & 3 & \cellcolor{green}3 & 2 & \cellcolor{green}2 \\
+					\hline 
+				\end{tabular}
+				\end{center}			
+			}
 		}
 
+		\newpage
 		\question{
 			You want to compress the dictionary terms stored in the leaf pages of a B-tree. Apply front coding to the following list of terms:
 			\begin{itemize}
@@ -77,7 +99,20 @@
 				\item{Jamb}
 			\end{itemize}
 			
-			\answer{}
+			\answer{
+				\begin{center}
+					\begin{tabular}{l l}
+						word & front coding \\
+						\hline
+						Jalaun & 0,6 Jalaun \\
+						Jalna & 3,2 na \\
+						Jalpaigur & 3,6 paigur \\
+						Jamaica & 2,5 maica \\
+						Jamal & 4,1 l\\
+						Jamb & 3,1 b\\ 
+					\end{tabular}
+				\end{center}
+			}
 		}
 
 		\newpage
