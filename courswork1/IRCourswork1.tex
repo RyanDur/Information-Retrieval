@@ -7,6 +7,7 @@
 \newcommand{\questions}[1]{\begin{enumerate}[itemsep=3em] #1 \end{enumerate}}
 \newcommand{\question}[1]{\item{#1}}
 \newcommand{\answer}[1]{\fbox{\parbox{\linewidth}{#1}}}
+\newcommand{\divider}{\line(0, 1){15}}
 
 \begin{document}
 	\lhead{Ryan Durling}
@@ -123,7 +124,28 @@
 			\end{center}
 			Is this a sequence properly encoded in $\gamma$-code? If yes, write down the decoded list of DocIDs. If no, briefly explain why this bit-string is not a correct $\gamma$-code.\\ \\
 			
-			\answer{}
+			\answer{
+				\begin{center}
+					Calculate the offset:\\
+					\begin{tabular}{l l l l}
+						[1110] 001 & [11110] 1011 & [110] 00 &  [111110] 0100 \\
+						1110 = 3 & 11110 = 4 & 110 = 2 & 111110 = 5  \\
+					\end{tabular}
+				\end{center}
+				
+				\begin{center}
+					Prefix with one:\\
+					\begin{tabular}{l l l l}
+						1110 [001] & 11110 [1011] & 110 [00] &  111110 [0100?] \\
+						1$\to$001 & 1$\to$1011 & 1$\to$00 & 1$\to$0100? \\
+						1001 = 9 & 11011 = 35 & 100 = 4 & 10100? = ?  \\
+					\end{tabular}
+				\end{center}
+				 
+				\begin{center}
+					The last $\gamma$-code offset was larger than the number of 0's or 1's. This sequence is not properly encoded in $\gamma$-code.
+				\end{center}
+			}
 		}
 		
 		\question{
