@@ -3,11 +3,23 @@
 \usepackage[table]{xcolor}
 \usepackage{fancyhdr}
 \pagestyle{fancyplain}
+\usepackage{letltxmacro}
+\usepackage{amsmath}
+\usepackage{nicefrac}
+
+\LetLtxMacro{\oldsqrt}{\sqrt} % makes all sqrts closed
+\renewcommand{\sqrt}[1][\ ]{%
+  \def\DHLindex{#1}\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+  \setbox0=\hbox{$#1\oldsqrt[\DHLindex]{#2\,}$}\dimen0=\ht0
+  \advance\dimen0-0.2\ht0
+  \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+  {\box0\lower0.71pt\box2}}
 
 \newcommand{\questions}[1]{\begin{enumerate}[itemsep=3em] #1 \end{enumerate}}
 \newcommand{\question}[1]{\item{#1}}
 \newcommand{\answer}[1]{\fbox{\parbox{\linewidth}{#1}}}
-\newcommand{\divider}{\line(0, 1){15}}
+\newcommand{\workedEquation}[1]{\begin{equation*}\begin{split} #1 \end{split}\end{equation*}}
 
 \begin{document}
 	\lhead{Ryan Durling}
@@ -79,9 +91,9 @@
 					\hline
 					c & 1 & 1 & 2 & 3 \\
 					\hline
-					a & 2 & 2 & 2 & \cellcolor{green}2 \\
+					a & 2 & 2 & 2 & 3 \\
 					\hline
-					t & 3 & \cellcolor{green}3 & 2 & \cellcolor{green}2 \\
+					t & 3 & \cellcolor{green}3 & \cellcolor{green}3 & \cellcolor{green}2 \\
 					\hline 
 				\end{tabular}
 				\end{center}			
@@ -107,7 +119,7 @@
 						\hline
 						Jalaun & 0,6 Jalaun \\
 						Jalna & 3,2 na \\
-						Jalpaigur & 3,6 paigur \\
+						Jalpaigur & 3,7 paiguri \\
 						Jamaica & 2,5 maica \\
 						Jamal & 4,1 l\\
 						Jamb & 3,1 b\\ 
@@ -148,6 +160,7 @@
 			}
 		}
 		
+		\newpage
 		\question{
 			Compute the cosine similarity between each pair of the following vectors, assuming that the elements of these vectors have already been weighted using TF-IDF.
 		
@@ -163,7 +176,25 @@
 				2 \\ 1 \\ 0 \\ 0 \\ 2
 			 \end{array} \right)\] 
 			 
-			\answer{}
+			\answer{		
+				\workedEquation{
+					cos(d_1, d_2) &\approx \dfrac{(1 \cdot 6) + (2 \cdot 0) + (3 \cdot 0) + (1 \cdot 6) + (1 \cdot 3)}{\sqrt{1^2 + 2^2 + 3^2 + 1^2 + 1^2} \cdot \sqrt{6^2 + 0^2 + 0^2 + 6^2 + 3^2}}\\[5pt]
+					&\approx \dfrac{6 + 0 + 0 + 6 + 3}{\sqrt{1 + 4 + 9 + 1 + 1} \cdot \sqrt{36 + 0 + 0 + 36 + 9}}\\[5pt]
+					&\approx 0.417 = \frac{5}{12} = \frac{15}{36} = \frac{15}{4 \cdot 9} = \frac{15}{\sqrt{16} \cdot \sqrt{81}}	
+				}
+				
+				\workedEquation{
+					cos(d_1, d_3) &\approx \dfrac{(1 \cdot 2) + (2 \cdot 1) + (3 \cdot 0) + (1 \cdot 0) + (1 \cdot 2)}{\sqrt{1^2 + 2^2 + 3^2 + 1^2 + 1^2} \cdot \sqrt{2^2 + 1^2 + 0^2 + 0^2 + 1^2}}\\[5pt] 
+					&\approx \dfrac{2 + 2 + 0 + 0 + 2}{\sqrt{1 + 4 + 9 + 1 + 1} \cdot \sqrt{4 + 1 + 0 + 0 + 0}}\\[5pt]
+					&\approx 0.5 = \frac{1}{2} = \frac{6}{12} = \frac{6}{4 \cdot 3} = \frac{6}{\sqrt{16} \cdot \sqrt{9}}
+				}
+				
+				\workedEquation{
+					cos(d_2, d_3) &\approx \dfrac{(6 \cdot 2) + (0 \cdot 1) + (0 \cdot 0) + (6 \cdot 0) + (3 \cdot 2)}{\sqrt{6^2 + 0^2 + 0^2 + 6^2 + 3^2} \cdot \sqrt{2^2 + 1^2 + 0^2 + 0^2 + 1^2}}\\[5pt]
+					&\approx \dfrac{12 + 0 + 0 + 0 + 6}{\sqrt{36 + 0 + 0 + 36 + 9} \cdot \sqrt{4 + 1 + 0 + 0 + 0}}\\[5pt]
+					&\approx 0.66 = \frac{2}{3} = \frac{18}{27} = \frac{18}{9 \cdot 3} = \frac{18}{\sqrt{81} \cdot \sqrt{9}}
+				}
+			}						
 		}
 	}
 \end{document}
