@@ -5,8 +5,6 @@
 \pagestyle{fancyplain}
 \usepackage{letltxmacro}
 \usepackage{amsmath}
-\usepackage{nicefrac}
-
 \LetLtxMacro{\oldsqrt}{\sqrt} % makes all sqrts closed
 \renewcommand{\sqrt}[1][\ ]{%
   \def\DHLindex{#1}\mathpalette\DHLhksqrt}
@@ -16,15 +14,39 @@
   \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
   {\box0\lower0.71pt\box2}}
 
-\newcommand{\questions}[1]{\begin{enumerate}[itemsep=3em] #1 \end{enumerate}}
-\newcommand{\question}[1]{\item{#1}}
-\newcommand{\answer}[1]{\fbox{\parbox{\linewidth}{#1}}}
-\newcommand{\workedEquation}[1]{\begin{equation*}\begin{split} #1 \end{split}\end{equation*}}
+\newcommand{\questions}[1]{
+	\begin{enumerate}[itemsep=3em] 
+		#1 
+	\end{enumerate}
+}
 
-\begin{document}
-	\lhead{Ryan Durling}
-	\rhead{IR Coursework (1)}
-	
+\newcommand{\question}[1]{
+	\item{#1}
+}
+
+\newcommand{\answer}[1]{
+	\fbox{\parbox{\linewidth}{
+		#1}
+	}
+}
+
+\newcommand{\workedEquation}[1]{
+	\begin{equation*}
+		\begin{split} 
+			#1 
+		\end{split}
+	\end{equation*}
+}
+
+\newcommand{\coursework}[3]{
+	\begin{document}
+		\lhead{#1}
+		\rhead{#2} 
+		#3 
+	\end{document}
+}
+
+\coursework{Ryan Durling}{IR Coursework (1)}{
 	\questions{
 		\question{
 			You are using a boolean IR system with an inverted file index containing the following positional information:\\ \\			
@@ -197,24 +219,4 @@
 			}						
 		}
 	}
-\end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
