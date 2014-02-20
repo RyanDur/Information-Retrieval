@@ -4,7 +4,10 @@
 \usepackage{fancyhdr}
 \usepackage{letltxmacro}
 \usepackage{amsmath}
-\pagestyle{fancyplain}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+\cfoot{\thepage\ of \pageref{LastPage}}
 
 %========================================================================= MACROS_BEGIN
 \LetLtxMacro{\oldsqrt}{\sqrt} % makes all sqrts closed
